@@ -1,7 +1,6 @@
 import DisplaySidebar from './details/display-sidebar';
-import QuestDetailsProvider from './providers/quest-details-provider';
-import QuestsProvider from './providers/quests-provider';
 import Sidebar from './sidebar/sidebar';
+import { Toaster } from './ui/toaster';
 
 export default function MainLayout({ children }: any) {
   return (
@@ -15,6 +14,7 @@ export default function MainLayout({ children }: any) {
           <DisplaySidebar></DisplaySidebar>
         </div>
       </main>
+      <Toaster />
     </>
   );
 }

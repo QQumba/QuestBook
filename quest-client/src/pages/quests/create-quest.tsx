@@ -1,12 +1,13 @@
 import { createQuest } from '@/api/quest-api';
+import { useToast } from '@/components/ui/use-toast';
 import { useQuestStore } from '@/stores/quests-store';
 import { PlusIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 
 export default function CreateQuest() {
   const [title, setTitle] = useState<string>('');
-
   const addQuest = useQuestStore((state) => state.addQuest);
+  const { toast } = useToast();
 
   async function onQuestCreated() {
     if (title === '') {
@@ -20,6 +21,7 @@ export default function CreateQuest() {
     }
 
     addQuest(result);
+    toast({ title: 'Success!', description: 'New quest created' });
 
     setTitle('');
   }
