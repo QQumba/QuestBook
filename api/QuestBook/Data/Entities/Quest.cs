@@ -14,9 +14,14 @@ public class Quest
     /// </summary>
     public string Title { get; set; } = null!;
 
-    public bool Finished { get; set; }
+    [Column("finished")]
+    public bool Completed { get; set; }
 
     public long? SectionId { get; set; }
+
+    public DateTime CreatedDateTime { get; set; }
+
+    public DateTime? CompletedDateTime { get; set; }
 
     [JsonIgnore]
     public Section? Section { get; set; }

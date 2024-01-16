@@ -57,11 +57,11 @@ export default function QuestDetails() {
           <div className="w-4 inline-block text-center flex-shrink-0">
             <input
               type="checkbox"
-              checked={selectedQuest!.finished}
+              checked={selectedQuest!.completed}
               onChange={(e) =>
                 onQuestChanged({
                   ...quest!,
-                  finished: !selectedQuest!.finished,
+                  completed: !selectedQuest!.completed,
                 })
               }
             />

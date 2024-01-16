@@ -2,5 +2,5 @@
 
 public record UpdateQuestRequest(
     string Title,
-    bool Finished
+    bool Completed
 );

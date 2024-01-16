@@ -26,7 +26,8 @@ public class QuestEndpoints : IEndpointsDefinition
         var section = await db.Sections.FirstAsync();
         var quest = request.ToQuest();
         quest.SectionId = section.SectionId;
-        
+        quest.CreatedDateTime = DateTime.UtcNow;
+
         var createdQuest = db.Quests.Add(quest);
         await db.SaveChangesAsync();
 
@@ -52,9 +53,15 @@ public class QuestEndpoints : IEndpointsDefinition
             return Results.NotFound($"Quest with id {questId} could not be found");
         }
 
-        quest.Title = request.Title;
-        quest.Finished = request.Finished;
+        // TODO: it might be a good idea to move complete/uncomplete logic to a separate endpoint 
+        if (!quest.Completed && request.Completed)
+        {
+            quest.CompletedDateTime = DateTime.UtcNow;
+        }
 
+        quest.Title = request.Title;
+        quest.Completed = request.Completed;
+        
         await db.SaveChangesAsync();
         return Results.Ok(quest);
     }

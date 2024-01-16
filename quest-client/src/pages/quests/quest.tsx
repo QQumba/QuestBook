@@ -21,12 +21,12 @@ export default function Quest({
   const questDetailsDispatch = useQuestDetailsDispatch();
   const selectQuest = useQuestStore((state) => state.selectQuest);
 
-  const lineThrough = !edit && quest.finished;
+  const lineThrough = !edit && quest.completed;
   // const selected = questDetails?.quest?.questId == quest.questId;
   const selected = useQuestStore(state => state.selectedQuestId === quest.questId);
 
-  function toggleFinished() {
-    quest.finished = !quest.finished;
+  function toggleCompleted() {
+    quest.completed = !quest.completed;
     onQuestChanged(quest);
   }
 
@@ -45,8 +45,8 @@ export default function Quest({
         <input
           className=" outline-slate-300 cursor-pointer"
           type="checkbox"
-          checked={quest.finished}
-          onChange={toggleFinished}
+          checked={quest.completed}
+          onChange={toggleCompleted}
           onClick={(e) => {
             e.stopPropagation();
           }}

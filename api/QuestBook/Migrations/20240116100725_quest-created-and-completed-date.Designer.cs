@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using QuestBook.Data;
@@ -11,9 +12,11 @@ using QuestBook.Data;
 namespace QuestBook.Migrations
 {
     [DbContext(typeof(QuestBookDbContext))]
-    partial class QuestBookDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240116100725_quest-created-and-completed-date")]
+    partial class questcreatedandcompleteddate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -1,7 +1,9 @@
 type Quest = {
   questId: number;
   title: string;
-  finished: boolean;
+  completed: boolean;
+  completedDateTime: Date;
+  createdDateTime: Date;
 };
 
 type CreateQuestRequest = {
