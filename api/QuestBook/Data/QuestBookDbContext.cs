@@ -13,6 +13,8 @@ public class QuestBookDbContext : DbContext
 
     public DbSet<Section> Sections { get; set; } = null!;
 
+    public DbSet<Schedule> Schedules { get; set; } = null!;
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
     }

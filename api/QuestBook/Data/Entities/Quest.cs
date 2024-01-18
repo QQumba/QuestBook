@@ -17,12 +17,17 @@ public class Quest
     [Column("finished")]
     public bool Completed { get; set; }
 
-    public long? SectionId { get; set; }
-
     public DateTime CreatedDateTime { get; set; }
 
     public DateTime? CompletedDateTime { get; set; }
 
+    public long? SectionId { get; set; }
+
+    public long? ScheduleId { get; set; }
+
     [JsonIgnore]
     public Section? Section { get; set; }
+
+    [JsonIgnore]
+    public Schedule? Schedule { get; set; }
 }
